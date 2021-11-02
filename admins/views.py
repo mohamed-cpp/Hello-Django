@@ -13,3 +13,12 @@ def index(request):
     'admins' : admins,
     'request' : request
   })
+
+
+def show(request, name):
+  admin = {"name": name }
+
+  return render(request, 'admins/show.html', {
+    'show' : True,
+    'admin' : admin,
+  })

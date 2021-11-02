@@ -1,15 +1,16 @@
-{% include 'admins/layouts/app.html' %}
+{% extends 'layouts/app.html' %}
 
+{% block title %} Admins {% endblock %}
 
+{% block content %}
 <div class="container">
   <h1>Welcome Admin</h1>
   {% if show %}
     <div class="alert alert-primary" role="alert">
       {% for admin in admins %}
-        <p> Welcome : {{ admin.name }} </p>
+        <a href="{% url 'adminroute' admin.name %}"> Welcome : {{ admin.name }} </a> <br>
       {% endfor %}
     </div>
   {% endif %}
 </div>
-
-{% include 'admins/layouts/end.html' %}
+{% endblock %}
