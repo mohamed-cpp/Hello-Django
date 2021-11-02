@@ -3,10 +3,13 @@
 
 <div class="container">
   <h1>Welcome Admin</h1>
-
-  <div class="alert alert-primary" role="alert">
-    A simple primary alert—check it out!
-  </div>
+  {% if show %}
+    <div class="alert alert-primary" role="alert">
+      {% for admin in admins %}
+        <p> Welcome : {{ admin.name }} </p>
+      {% endfor %}
+    </div>
+  {% endif %}
 </div>
 
 {% include 'admins/layouts/end.html' %}

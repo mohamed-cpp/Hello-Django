@@ -1,7 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 # Create your views here.
 
 def index(request):
-  return render(request, 'admins/index.html')
+  admins = [
+    {"name": "mohamed"},
+    {"name": "ahmed"},
+  ]
+
+  return render(request, 'admins/index.html', {
+    'show' : True,
+    'admins' : admins,
+    'request' : request
+  })

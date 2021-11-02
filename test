@@ -1,0 +1,6 @@
+  230  python -m pip install Django
+  231  django-admin startproject hello_django
+  cd hello_django/
+
+    237  python manage.py startapp admins
+  238  python manage.py runserver
