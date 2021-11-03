@@ -9,6 +9,10 @@ class Admin(models.Model):
   email = models.EmailField(max_length=250, unique=True, null=True)
   password = models.CharField(max_length=200)
   is_main = models.BooleanField(default=False)
+  image = models.ImageField(upload_to='admin/images')
+
+  def __str__(self):
+    return f'{self.name} - {self.is_main}'
 
   def underscored_name(self):
     return self.name.replace(' ','_')
