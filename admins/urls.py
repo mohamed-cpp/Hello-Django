@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('admin', views.index),
-    path('admin/show/<slug:name>', views.show, name="adminroute")
+    path('admin/show/<slug:name>/<id>', views.show, name="adminroute")
 ]

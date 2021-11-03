@@ -8,7 +8,8 @@
   {% if show %}
     <div class="alert alert-primary" role="alert">
       {% for admin in admins %}
-        <a href="{% url 'adminroute' admin.name %}"> Welcome : {{ admin.name }} </a> <br>
+         <! -- {{ admin.underscored_name }} -->
+        <a href="{% url 'adminroute' admin.name.split|join:"_" admin.id %}"> Admin : {{ admin.name }} </a> <br>
       {% endfor %}
     </div>
   {% endif %}

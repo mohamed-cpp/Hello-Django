@@ -4,3 +4,11 @@
 
     237  python manage.py startapp admins
   238  python manage.py runserver
+
+
+
+
+
+
+  python manage.py makemigrations
+python manage.py migrate
