@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.hashers import make_password, check_password
 from .models import Admin as AdminModel
+from .models import Phone
 # Register your models here.
 
 class AdminPanel(admin.ModelAdmin):
@@ -13,3 +14,4 @@ class AdminPanel(admin.ModelAdmin):
 
 
 admin.site.register(AdminModel, AdminPanel)
+admin.site.register(Phone)

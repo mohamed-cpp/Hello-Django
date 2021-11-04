@@ -5,6 +5,15 @@
 {% block content %}
 <div class="container">
   <h1>Welcome {{ admin.name }}</h1>
+
+
+  {% for phone in phones %}
+    <p> phone : {{phone.admin_id.name}}</p>
+    <p> phone : {{phone.phone}}</p>
+    <p> landline : {{phone.lindline}}</p>
+    <hr>
+  {% endfor %}
+
   <img src="{{ admin.image.url }}" >
 </div>
 

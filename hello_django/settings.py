@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'admins',
     'user_example',
+    'City',
 ]
 
 MIDDLEWARE = [
