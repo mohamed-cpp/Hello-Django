@@ -13,5 +13,43 @@
       {% endfor %}
     </div>
   {% endif %}
+
+  <h1>Add Admin </h1>
+  <form class="row g-3" method="POST" action="{% url 'admins'  %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="col-md-6">
+      <label for="id_name" class="form-label">name</label>
+      {{form.name}}
+    </div>
+    <div class="col-md-6">
+      <label for="id_email" class="form-label">email</label>
+      {{form.email}}
+    </div>
+    <div class="col-md-12">
+      <label for="id_password" class="form-label">password</label>
+      {{form.password}}
+    </div>
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="id_image">Upload</label>
+      {{form.image}}
+    </div>
+    <div class="col-md-12">
+      <label for="city_name" class="form-label">city name</label>
+      {{form_city.name}}
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-check">
+      {{form.is_main}}
+      <label class="form-check-label" for="id_is_main">
+        Check me out
+      </label>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+  </form>
 </div>
 {% endblock %}

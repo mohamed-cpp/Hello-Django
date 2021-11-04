@@ -3,17 +3,33 @@ from django.http.response import Http404
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.db import connection
+from django.contrib.auth.hashers import make_password
 
 from admins.models import Phone
 from .models import Admin
+from .forms import AddAdmin, City
 # Create your views here.
 
 def index(request):
-  admins = Admin.objects.all()
-  return render(request, 'admins/index.html', {
-    'show' : True,
-    'admins' : admins
-  })
+  if request.method == "GET":
+    admins = Admin.objects.all()
+    return render(request, 'admins/index.html', {
+      'show' : True,
+      'admins' : admins,
+      'form' : AddAdmin(),
+      'form_city' : City(prefix='city'),
+    })
+  else:
+    admin_form = AddAdmin(request.POST, request.FILES)
+    admin_city =  City(request.POST)
+    #admin_form.errors
+    if admin_form.is_valid() and admin_city.is_valid():
+      admin = admin_form.save(commit=False)
+      admin.password = make_password(request.POST['password'])
+      admin.save()
+      admin.city.add(admin_city.save())
+
+
 
 def calculate_db_response_time():
     sqltime = 0.0 # Variable to store execution time
