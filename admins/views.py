@@ -1,9 +1,11 @@
 from django.contrib import admin
 from django.http.response import Http404
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 from django.db import connection
 from django.contrib.auth.hashers import make_password
+from django.contrib import messages
+
 
 from admins.models import Phone
 from .models import Admin
@@ -11,15 +13,9 @@ from .forms import AddAdmin, City
 # Create your views here.
 
 def index(request):
-  if request.method == "GET":
-    admins = Admin.objects.all()
-    return render(request, 'admins/index.html', {
-      'show' : True,
-      'admins' : admins,
-      'form' : AddAdmin(),
-      'form_city' : City(prefix='city'),
-    })
-  else:
+  admin_form = AddAdmin()
+  admin_city = City(prefix='city', initial={'name': 'Cairo'})
+  if request.method == "POST":
     admin_form = AddAdmin(request.POST, request.FILES)
     admin_city =  City(request.POST)
     #admin_form.errors
@@ -28,6 +24,16 @@ def index(request):
       admin.password = make_password(request.POST['password'])
       admin.save()
       admin.city.add(admin_city.save())
+      messages.success(request, 'Admin Added.')
+      #return redirect('route-name')
+
+  admins = Admin.objects.all()
+  return render(request, 'admins/index.html', {
+    'show' : True,
+    'admins' : admins,
+    'form' : admin_form,
+    'form_city' : admin_city,
+  })
 
 
 

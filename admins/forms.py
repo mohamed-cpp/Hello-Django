@@ -11,6 +11,7 @@ class City(forms.ModelForm):
   def __init__(self, *args, **kwargs):
     super(City, self).__init__(*args, **kwargs)
     self.fields['name'].widget.attrs.update({'class': 'form-control', 'id': 'city_name'})
+    #self.fields['name'].required = False
 
 class AddAdmin(forms.ModelForm):
 
