@@ -9,7 +9,7 @@ from django.contrib import messages
 
 from admins.models import Phone
 from .models import Admin
-from .forms import AddAdmin, City
+from .forms import AddAdmin, City, UslessForm
 # Create your views here.
 
 def index(request):
@@ -25,7 +25,7 @@ def index(request):
       admin.save()
       admin.city.add(admin_city.save())
       messages.success(request, 'Admin Added.')
-      #return redirect('route-name')
+      #return redirect('route-name', id=id)
 
   admins = Admin.objects.all()
   return render(request, 'admins/index.html', {
@@ -33,6 +33,7 @@ def index(request):
     'admins' : admins,
     'form' : admin_form,
     'form_city' : admin_city,
+    'UslessForm' : UslessForm(),
   })
 
 

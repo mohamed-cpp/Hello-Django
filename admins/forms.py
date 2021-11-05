@@ -14,7 +14,7 @@ class City(forms.ModelForm):
     #self.fields['name'].required = False
 
 class AddAdmin(forms.ModelForm):
-
+  password = forms.CharField(widget=forms.PasswordInput())
   class Meta:
     model = Admin
     fields = ['name','email','is_main','password','image']
@@ -25,3 +25,11 @@ class AddAdmin(forms.ModelForm):
     self.fields['password'].widget.attrs.update({'class': 'form-control'})
     self.fields['image'].widget.attrs.update({'class': 'form-control'})
     self.fields['is_main'].widget.attrs.update({'class': 'form-check-input'})
+
+
+class UslessForm(forms.Form):
+  prefix = 'testform'
+  email = forms.EmailField(label="Email")
+  password = forms.CharField(widget = forms.PasswordInput())
+  file = forms.FileField(label="File")
+  data = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
