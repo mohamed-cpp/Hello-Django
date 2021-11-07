@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 from django.db import connection
 from django.contrib.auth.hashers import make_password
 from django.contrib import messages
-
+from django.utils.translation import ugettext as _
 
 from admins.models import Phone
 from .models import Admin
@@ -24,7 +24,7 @@ def index(request):
       admin.password = make_password(request.POST['password'])
       admin.save()
       admin.city.add(admin_city.save())
-      messages.success(request, 'Admin Added.')
+      messages.success(request, _('Admin Added.'))
       #return redirect('route-name', id=id)
 
   admins = Admin.objects.all()

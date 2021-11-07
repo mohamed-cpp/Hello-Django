@@ -19,18 +19,30 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 import debug_toolbar
-
 from django.views.generic.base import RedirectView
 
+from django.contrib.sitemaps.views import sitemap
+from django.conf.urls.i18n import i18n_patterns
+
+from .sitemaps import StaticViewSitemap
+
+
+sitemaps = {
+    'static': StaticViewSitemap,
+}
+
 urlpatterns = [
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('admin/', admin.site.urls),
-
-    path('auth/', include('user_example.urls')),
-    path("", RedirectView.as_view(url="/perfix/admin")),
-    path('perfix/', include('admins.urls')), # perfix
-    #path('', include('admins.urls'))
-
+    path('i18n/', include('django.conf.urls.i18n')),
 
     path('__debug__/', include(debug_toolbar.urls)),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += i18n_patterns(
+    path('auth/', include('user_example.urls')),
+    path("", RedirectView.as_view(url="/perfix/admin")),
+    path('perfix/', include('admins.urls')), # perfix
+    #path('', include('admins.urls'))
+)

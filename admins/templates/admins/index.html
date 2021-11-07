@@ -1,20 +1,20 @@
 {% extends 'layouts/app.html' %}
-
+{% load i18n %}
 {% block title %} Admins {% endblock %}
 
 {% block content %}
 <div class="container">
-  <h1>Welcome Admin</h1>
+  <h1> {% translate "Welcome Admin" %} </h1>
   {% if show %}
     <div class="alert alert-primary" role="alert">
       {% for admin in admins %}
          <! -- {{ admin.underscored_name }} -->
-        <a href="{% url 'adminroute' admin.name.split|join:"_" admin.id %}"> Admin : {{ admin.name }} </a> <br>
+        <a href="{% url 'adminroute' admin.name.split|join:"_" admin.id %}"> {% translate 'Admin' %} : {{ admin.name }} </a> <br>
       {% endfor %}
     </div>
   {% endif %}
 
-  <h1>Add Admin </h1>
+  <h1>{% translate 'Add Admin' %} </h1>
   <form class="row g-3" method="POST" action="{% url 'admins'  %}" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="col-md-6">
