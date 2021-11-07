@@ -47,12 +47,19 @@ def calculate_db_response_time():
 def show(request, name, id):
   admin = get_object_or_404(Admin, id=id) # best way in my opinion
   phones = Phone.objects.filter(admin_id=id)
+  form = AddAdmin(request.POST or None, request.FILES or None, instance=admin )
+  if request.method == "POST" and form.is_valid():
+    admin = form.save(commit=False)
+    admin.password = make_password(request.POST['password'])
+    admin.save()
+    messages.success(request, 'Admin Updated.')
   #print(admin.__dict__)
   #print(request.__dict__)
   calculate_db_response_time()
   return render(request, 'admins/show.html', {
       'admin' : admin,
       'phones' : phones,
+      'form' : form,
     })
   ''' Another way to retuen 404
   try:

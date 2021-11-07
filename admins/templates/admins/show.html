@@ -20,7 +20,7 @@
 
 
 
-  <form class="row g-3" method="POST" action="{% url 'admins'  %}" enctype="multipart/form-data">
+  <form class="row g-3" method="POST" action="{% url 'adminroute' admin.name.split|join:"_" admin.id  %}" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="col-md-6">
       <label for="id_name" class="form-label">name</label>
@@ -39,13 +39,8 @@
     </div>
     <div class="input-group mb-3">
       <label class="input-group-text" for="id_image">Upload</label>
-      {{form.image}}
+      <input type="file" class="form-control" name="{{ form.image.name }}" />
       <span class="text-danger"> {{form.image.errors}}</span>
-    </div>
-    <div class="col-md-12">
-      <label for="city_name" class="form-label">city name</label>
-      {{form_city.name}}
-      <span class="text-danger"> {{form_city.name.errors}}</span>
     </div>
 
     <div class="col-md-12">
