@@ -24,10 +24,10 @@ class AddAdmin(forms.ModelForm):
     self.fields['name'].widget.attrs.update({'class': 'form-control'})
     self.fields['email'].widget.attrs.update({'class': 'form-control'})
     self.fields['password'].widget.attrs.update({'class': 'form-control'})
-    self.fields['password'].required = False
     self.fields['image'].widget.attrs.update({'class': 'form-control'})
     self.fields['is_main'].widget.attrs.update({'class': 'form-check-input'})
     if not self._newly_created:
+      self.fields['password'].required = False
       self.fields['image'].widget.initial_text = "currently"
       forms.ImageField(label='Image Admin',required=False, error_messages = {'invalid':"Image files only"}, widget=forms.FileInput)
 
