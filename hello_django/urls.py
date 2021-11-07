@@ -24,11 +24,12 @@ from django.views.generic.base import RedirectView
 from django.contrib.sitemaps.views import sitemap
 from django.conf.urls.i18n import i18n_patterns
 
-from .sitemaps import StaticViewSitemap
+from .sitemaps import StaticViewSitemap, AdminSitemap
 
 
 sitemaps = {
     'static': StaticViewSitemap,
+    'admin': AdminSitemap,
 }
 
 urlpatterns = [
