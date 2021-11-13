@@ -13,7 +13,8 @@
   python manage.py makemigrations
 python manage.py migrate
 
-
+django-admin makemessage -l ar
+django-admin compilemessages
 
 https://www.ordinarycoders.com/blog/article/django-sitemap
 
