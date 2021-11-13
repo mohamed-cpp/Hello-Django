@@ -16,6 +16,9 @@ python manage.py migrate
 django-admin makemessage -l ar
 django-admin compilemessages
 
+ curl http://localhost:8000/polls -H "Accept-Language: ar"
+
+
 https://www.ordinarycoders.com/blog/article/django-sitemap
 
 abstractbaseuser 
