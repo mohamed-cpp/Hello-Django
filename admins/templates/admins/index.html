@@ -23,7 +23,7 @@
       <span class="text-danger"> {{form.name.errors}}</span>
     </div>
     <div class="col-md-6">
-      <label for="id_email" class="form-label">email</label>
+      <label for="id_email" class="form-label">{% translate 'Email' %}</label>
       {{form.email}}
       <span class="text-danger"> {{form.email.errors.as_text}}</span>
     </div>
@@ -33,12 +33,12 @@
       <span class="text-danger"> {{form.password.errors}}</span>
     </div>
     <div class="input-group mb-3">
-      <label class="input-group-text" for="id_image">Upload</label>
+      <label class="input-group-text" for="id_image">{% translate 'Upload' %}</label>
       {{form.image}}
       <span class="text-danger"> {{form.image.errors}}</span>
     </div>
     <div class="col-md-12">
-      <label for="city_name" class="form-label">city name</label>
+      <label for="city_name" class="form-label">{% translate 'city name' %}</label>
       {{form_city.name}}
       <span class="text-danger"> {{form_city.name.errors}}</span>
     </div>
@@ -48,13 +48,13 @@
       {{form.is_main}}
       <span class="text-danger"> {{form.is_main.errors}}</span>
       <label class="form-check-label" for="id_is_main">
-        Check me out
+        {% translate 'Is main admin?' %}
       </label>
       </div>
     </div>
 
     <div class="col-12">
-      <button type="submit" class="btn btn-primary">Add</button>
+      <button type="submit" class="btn btn-primary">{% translate 'Add' %}</button>
     </div>
   </form>
 

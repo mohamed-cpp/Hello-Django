@@ -1,44 +1,48 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-07 16:23+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Project-Id-Version: 0.1\n"
+"Report-Msgid-Bugs-To: webmaster@localhost\n"
+"POT-Creation-Date: 2021-11-13 19:50:18\n"
+"PO-Revision-Date: 2021-11-13 19:50:18\n"
+"Last-Translator: Server <root@localhost>\n"
+"Language-Team: English <webmaster@localhost>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: admins/templates/admins/index.html:7
-msgid "Welcome Admin"
-msgstr "نرحب المشرف"
-
-#: admins/templates/admins/index.html:12
-msgid "Admin"
-msgstr "المشرف"
+#: admins/templates/admins/index.html:57
+msgid "Add"
+msgstr "يضيف"
 
 #: admins/templates/admins/index.html:17
 msgid "Add Admin"
 msgstr "إضافة المسؤول"
 
+#: admins/templates/admins/index.html:12
+msgid "Admin"
+msgstr "المشرف"
+
 #: admins/views.py:27
 msgid "Admin Added."
 msgstr "تم اضافة المشرف"
 
-#: hello_django/settings.py:161
-msgid "English"
-msgstr ""
+#: admins/templates/admins/index.html:26
+msgid "Email"
+msgstr "بريد الالكتروني"
 
-#: hello_django/settings.py:162
-msgid "Arabic"
-msgstr ""
+#: admins/templates/admins/index.html:51
+msgid "Is main admin?"
+msgstr "هل هو المسؤول الرئيسي؟"
+
+#: admins/templates/admins/index.html:36
+msgid "Upload"
+msgstr "رفع الصورة"
+
+#: admins/templates/admins/index.html:7
+msgid "Welcome Admin"
+msgstr "نرحب المشرف"
+
+#: admins/templates/admins/index.html:41
+msgid "city name"
+msgstr "اسم المدينة"

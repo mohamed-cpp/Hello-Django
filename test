@@ -13,8 +13,10 @@
   python manage.py makemigrations
 python manage.py migrate
 
-django-admin makemessage -l ar
+django-admin makemessages -l ar
 django-admin compilemessages
+
+django-admin makemessages -a -s << update
 
  curl http://localhost:8000/polls -H "Accept-Language: ar"
 

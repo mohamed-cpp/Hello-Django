@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'user_example',
     'City',
     'debug_toolbar',
+    'translation_manager',
     'django_cleanup.apps.CleanupConfig',
 ]
 
